@@ -8,9 +8,13 @@ use Illuminate\Http\Resources\Json\JsonResource;
 class CityResource extends JsonResource
 {
     /**
-     * Transform the resource into an array.
-     *
-     * @return array<string, mixed>
+     * @OA\Schema(
+     *     schema="CityResource",
+     *     type="object",
+     *     allOf={
+     *         @OA\Schema(ref="#/components/schemas/City")
+     *     }
+     * )
      */
     public function toArray(Request $request): array
     {

@@ -8,6 +8,7 @@ use App\Models\Store;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        User::factory()->create([
+            'name' => 'truenormis',
+            'password' => Hash::make('root'),
+        ]);
         City::factory()->count(10)->has(
             Store::factory(5)->has(
                 Product::factory()->count(5)
